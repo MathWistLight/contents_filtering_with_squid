@@ -1,0 +1,42 @@
+---
+# tasks file for proxy
+- name: install squid.
+  ansible.builtin.apt:
+    name: squid
+    state: present
+- name: enable squid.
+  ansible.builtin.service:
+    name: squid
+    enabled: true
+- name: copy the config.
+  ansible.builtin.template:
+    src: squid.conf.j2
+    dest: /etc/squid/squid.conf
+    mode: "0644"
+    owner: root
+    group: root
+  notify: restart squid.
+- name: copy the stricted list.
+  ansible.builtin.template:
+    src: stricted_list.txt.j2
+    dest: "/home/{{ user }}/stricted_list.txt"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  notify: restart squid.
+- name: copy the banned list.
+  ansible.builtin.template:
+    src: banned_list.txt.j2
+    dest: "/home/{{ user }}/banned_list.txt"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  notify: restart squid.
+- name: copy the banned url list.
+  ansible.builtin.template:
+    src: banned_url.txt.j2
+    dest: "/home/{{ user }}/banned_url.txt"
+    mode: "0644"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  notify: restart squid.

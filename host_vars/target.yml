@@ -1,0 +1,4 @@
+---
+ansible_ssh_pass: "YOUR PASSWORD"
+ansible_user: "YOUR USERNAME"
+ansible_become_pass: "YOUR SUDO PASSWORD"

@@ -1,0 +1,80 @@
+---
+- name: setting proxy server.
+  hosts: target
+  become: true
+  vars:
+    user: YOUR USERNAME
+    group: YOUR GROUP NAME
+    localaddr: YOUR LOCAL NETWORK ADDRESS
+    ports:
+      - 1880
+      - 3000
+      - 30080
+    banned_url:
+      - ^(https*://)*([^/][^/]*\.)*rr.*(-*)sn-oguel(.*)\.googlevideo\.com(:443|:80).*$
+    # Customize setting for banned_list.txt
+    banned_list:
+      - .ads.nicovideo.jp
+      - .nicoad.jp
+      - .amazon-adsystem.com
+      - .pubmatic.com
+      - .doubleclick.net
+      - .adservice.google.co.jp
+      - .adservice.google.com
+      - .ads-twitter.com
+      - .googleadservices.com
+      - .aaxads.com
+      - .iadsdk.apple.com
+      - .ladsp.com
+      - .moatads.com
+      - .mfadsrvr.com
+      - .smartnews-ads.com
+      - .adtdp.com
+      - .adsymptotic.com
+      - .rubiconproject.com
+      - .adsrvr.org
+      - .adsafeprotected.com
+      - .criteo.com
+      - .ads-api.twitter.com
+      - .stickyadstv.com
+      - .yads.c.yimg.jp
+      - .yads.yjtag.yahoo.co.jp
+      - .smartadserver.com
+      - .yieldmo.com
+      - .teads.tv
+      - .moatpixel.com
+      - .betweendigital.com
+      - .spadsync.com
+      - .akamaihd.net
+      - .ads-pixiv.net
+      - .ads.linkedin.com
+      - .postrelease.com
+      - .scorecardresearch.com
+      - .adfox.ru
+      - .googlesyndication.com
+      - .i-mobile.co.jp
+      - .cxense.com
+      - .adsmoloco.com
+      - .everesttech.net
+      - .everestads.net
+      - .metadsp.co.uk
+      - .iid.jp
+      - .fireworkadservices1.com
+      - .cbsivideo.com
+      - .optimizely.com
+      - .api.smoot.apple.com
+      - .popin.cc
+      - .nakanohito.jp
+      - .treasuredata.com
+      - .adform.net
+      - .mathtag.com
+      - .trafficfactory.biz
+      - .amazon-adsystem.com
+      - .orbsrv.com
+      - .vscdns.com
+      - .spotxchange.com
+      - .taboola.com
+      - .affiliate.rakuten.co.jp
+
+  roles:
+    - proxy
