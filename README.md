@@ -14,7 +14,7 @@
 
 ## Overview
 
-![no-no-channel](https://images.app.goo.gl/DFCPrfCfjBwzzz9j7)
+![no-no-channel](no-no-channel.gif)
 
 - This [Ansible](https://docs.ansible.com/ansible/2.9/index.html) Playbook deploys the proxy server using [Squid](http://www.squid-cache.org/) to filter the contents which you do not want to see (e.g., adult or violent contents, advertisements, and so on).
 - For just showing the example of filtering, the setting listed on [Easylist](https://easylist.to/) is used. If you delete this setting, change `roles/proxy/templates/banned_list.txt.j2` as below.
